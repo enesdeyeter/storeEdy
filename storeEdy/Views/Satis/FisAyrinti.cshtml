@@ -1,0 +1,33 @@
+﻿
+@model storeEdy.Models.NewFisler
+<div class="card shadow">
+    <div class="table-responsive">
+        <!-- Projects table -->
+        <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Barkod</th>
+                    <th scope="col">Ürün İsmİ</th>
+                    <th scope="col">Fİyatı</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.SepetOturum.Sepets)
+                {
+                <tr>
+                    <td>@item.NewUrunler.barkod</td>
+                    <td>
+                       @item.NewUrunler.urunAd
+                    </td>
+                    <td>
+                        @item.NewUrunler.urunFiyat
+                    </td>
+                    
+                </tr>
+                }
+                
+            </tbody>
+        </table>
+    </div>
+</div>

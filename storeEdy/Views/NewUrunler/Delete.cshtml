@@ -1,0 +1,69 @@
+﻿@model storeEdy.Models.NewUrunler
+
+@{
+    ViewBag.Title = "Ürün Sil | StoreEdy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-xl-3"></div>
+
+<div class="col-xl-6">
+    <div class="card card-profile shadow">
+        @*<div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-12" style="text-align:center">
+                    @*<h3 class="mb-0">Ürünü silmek istedğinize emin misiniz ?</h3>
+                </div>
+            </div>
+        </div>*@
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <div class="card-profile-stats d-flex justify-content-center">
+                        <div>
+                            <span class="heading">@Html.DisplayFor(model => model.barkod)</span>
+                            <span class="description">Barkod</span>
+                        </div>
+                        <div>
+                            <span class="heading">@Html.DisplayFor(model => model.urunAd)</span>
+                            <span class="description">Ürün Adı</span>
+                        </div>
+                        <div>
+                            <span class="heading">@Html.DisplayFor(model => model.urunFiyat)</span>
+                            <span class="description">Fiyat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.urunAciklama)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.urunAciklama)
+                    </dd>
+
+                </dl>
+                <hr class="my-4">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Sil" class="btn btn-danger btn-block" onclick='return confirm ("@Html.DisplayFor(model => model.barkod) barkod numaralı @Html.DisplayFor(model => model.urunAd) ürününü silmek için onaylayın!")' />
+                    </div>
+                }
+                <div class="mt-2">
+                    <a href="@Url.Action("Index", "NewUrunler")"> Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-3"></div>
+
+

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<storeEdy.Models.NewFisler>
+
+@{
+    ViewBag.Title = "Fişler | StoreEdy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 col-lg-12 mb-4">
+    <div class="card shadow bg-gradient-purple">
+        <div class="card-header border-0 bg-gradient-purple">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="mb-0 text-white">Fişler</h3>
+                </div>
+                <div class="col text-right">
+                    <a href="@Url.Action("Index","Satis")" class="btn btn-sm btn-secondary">Sepete Git</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-xl-3 col-lg-3 col-md-4">
+                        <div class="card shadow card-pricing border-0 text-center bg-gradient- mb-4">
+                            <div class="card-header bg-transparent">
+                                <h4 class="text-dark mb-0">Fiş No <b>#@item.SepetOturum.sepetoturumid</b></h4>
+                            </div>
+                            <div class="card-body px-lg-7">
+                                <div class="display-3">₺ @item.fisTutar</div>
+                                <span class=" text-muted">Fiş Tutarı</span>
+                                <button type="button" data-id="@item.fisid" class="btn btn-sm btn-block btn-outline-default mb-0 mt-4 detay" data-toggle="modal" data-target="#exampleModal">Ürünleri Gör</button>
+                            </div>
+                            <div class="card-profile-stats d-flex justify-content-center mt--3">
+                                <div>
+                                    <span class="heading">@item.tarih.ToShortTimeString()</span>
+                                    <span class="description">Oluşturma Saati</span>
+                                </div>
+                                <div>
+                                    <span class="heading">@item.tarih.ToShortDateString()</span>
+                                    <span class="description">Oluşturma Tarihi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Detaylı Fiş Bilgisi</h5>
+                                    <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Kapat</button>
+                                </div>
+                                
+                                <div class="modal-body">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

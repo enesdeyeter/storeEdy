@@ -1,0 +1,52 @@
+﻿@model IEnumerable<storeEdy.Models.NewUrunler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.barkod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.urunAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.urunAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.urunFiyat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.barkod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.urunAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.urunAciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.urunFiyat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.urunid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.urunid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.urunid })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,50 @@
+﻿@model storeEdy.Models.NewUrunler
+
+@{
+    ViewBag.Title = @Html.DisplayFor(model => model.urunAd);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-xl-3"></div>
+
+<div class="col-xl-6">
+    <div class="card card-profile shadow">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <div class="card-profile-stats d-flex justify-content-center">
+                        <div>
+                            <span class="heading">@Html.DisplayFor(model => model.barkod)</span>
+                            <span class="description">Barkod</span>
+                        </div>
+                        <div>
+                            <span class="heading">@Html.DisplayFor(model => model.urunAd)</span>
+                            <span class="description">Ürün Adı</span>
+                        </div>
+                        <div>
+                            <span class="heading">@Html.DisplayFor(model => model.urunFiyat)</span>
+                            <span class="description">Fiyat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.urunAciklama)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.urunAciklama)
+                    </dd>
+
+                </dl>
+                <hr class="my-4">
+                <a href="@Url.Action("Index", "NewUrunler")"> Geri Dön</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-3"></div>

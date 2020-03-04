@@ -1,0 +1,83 @@
+﻿@model storeEdy.Models.NewUrunler
+
+@{
+    ViewBag.Title = "Ürün Güncelle | StoreEdy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">Ürün Güncelle</h3>
+                </div>
+                <div class="col-4 text-right">
+                    <a href="@Url.Action("Index", "NewUrunler")" class="btn btn-sm btn-primary"><i class="fas fa-arrow-left mr-2" aria-hidden="true"></i> Geri</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <form>
+                    @*<h6 class="heading-small text-muted mb-4">User information</h6>*@
+                    <div class="pl-lg-4">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.Urunid)
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group focused">
+                                    @Html.LabelFor(model => model.barkod, htmlAttributes: new { @class = "form-control-label" })
+
+                                    @Html.EditorFor(model => model.barkod, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+                                    @Html.ValidationMessageFor(model => model.barkod, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-6">
+                                <div class="form-group focused">
+                                    @Html.LabelFor(model => model.urunAd, htmlAttributes: new { @class = "form-control-label" })
+
+                                    @Html.EditorFor(model => model.urunAd, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+                                    @Html.ValidationMessageFor(model => model.urunAd, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group focused">
+                                    @Html.LabelFor(model => model.urunAciklama, htmlAttributes: new { @class = "form-control-label" })
+
+                                    @Html.EditorFor(model => model.urunAciklama, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+                                    @Html.ValidationMessageFor(model => model.urunAciklama, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group focused">
+                                    @Html.LabelFor(model => model.urunFiyat, htmlAttributes: new { @class = "form-control-label" })
+
+                                    @Html.EditorFor(model => model.urunFiyat, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+                                    @Html.ValidationMessageFor(model => model.urunFiyat, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success">Ürünü Güncelle</button>
+
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+</div>

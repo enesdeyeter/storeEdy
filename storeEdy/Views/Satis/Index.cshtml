@@ -1,0 +1,148 @@
+﻿@model storeEdy.Models.SepetOturum
+@{
+    ViewBag.Title = "Sepet | StoreEdy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+
+}
+
+@using storeEdy.Controllers;
+@using storeEdy.Models;
+
+@*@model IEnumerable<storeEdy.Models.NewUrunler>*@
+
+
+
+<div class="col-xl-12 mb-5 mb-xl-0">
+    <div class="card shadow">
+        <div class="card-header border-0">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="mb-0">Hızlı Satış Ekranı</h3>
+                </div>
+                <div class="col text-right">
+                    <a href="@Url.Action("Satis","NewUrunler")" class="btn btn-sm btn-primary">gitmek için tıklayınız</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-8 mt-5 mb-xl-0">
+    <div class="card shadow">
+        @*<div class="card-header border-0">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="mb-0">Hızlı Satış Ekranı</h3>
+                    </div>
+                    <div class="col text-right">
+                        <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                    </div>
+                </div>
+            </div>*@
+        <div class="card-body">
+            <div class="col-xl-12 mb-5 pt-3 mb--0 mb-xl-12">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Fiş No <b>#@Model.sepetoturumid</b></h3>
+                            </div>
+                            <div class="col text-right">
+                                <a href="@Url.Action("Satis","NewUrunler")" class="btn btn-sm btn-outline-darker" data-toggle="tooltip" data-placement="top" title="PDF olarak al"><i class="fas fa-file-pdf"></i> PDF</a>
+                                <a href="@Url.Action("Satis","NewUrunler")" class="btn btn-sm btn-outline-darker" data-toggle="tooltip" data-placement="top" title="Excel olarak al"><i class="fas fa-file-excel"></i> Excel</a>
+                                <a href="@Url.Action("Satis","NewUrunler")" class="btn btn-sm btn-outline-darker" data-toggle="tooltip" data-placement="top" title="Word olarak al"><i class="fas fa-file-word"></i> Word</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <!-- Projects table -->
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th style="width:50px;">
+                                        Barkod
+                                    </th>
+                                    <th>
+                                        Ürün Ad
+                                    </th>
+                                    <th></th>
+                                    <th>
+                                        Ürün Fiyat
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{
+                                    double s = 0;
+                                }
+
+                                @if (Model.Sepets != null)
+                                {
+                                    foreach (var item in Model.Sepets)
+                                    {
+                                        <tr>
+                                            <th scope="row">
+                                                @item.NewUrunler.barkod
+                                            </th>
+                                            <td>
+                                                @item.NewUrunler.urunAd
+                                            </td>
+                                            <td>
+                                                @item.NewUrunler.urunAciklama
+                                            </td>
+                                            <td>
+                                                <i class="fa fa-lira-sign"></i> @item.NewUrunler.urunFiyat
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Delete", "Satis", new { id = item.sepetid })" class="btn btn-block btn-sm btn-outline-danger" onclick='return confirm ("Ürünü silmek için onaylayın!")'><i class="fas fa-times text-danger mr-2"></i> Ürünü Çıkar</a>
+                                                @*<a href="" class="btn btn-sm btn-danger disabled"><i class="fas fa-times text-dark mr-2 text-white" aria-hidden="true"></i> Tümünü Çıkar</a>*@
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                }
+
+                                <tr class="text-dark font-weight-bold" style="background-color:#E0F2F1;">
+                                    <td></td>
+                                    <td></td>
+                                    <th scope="row" style="font-size:15px;">
+                                        <b>TOPLAM TUTAR :</b>
+                                    </th>
+                                    <th scope="row" style="font-size:15px;">
+                                        <i class="fa fa-lira-sign"></i> <b>@Model.Sepets.Sum(x => x.NewUrunler.urunFiyat)</b>
+                                        
+                                    </th>
+                                    <th><a href="@Url.Action("Ode", "Satis", new { id = Model.sepetoturumid })" class="btn btn-block btn-success" onclick='return confirm ("Ödeme yapmayı onaylıyor musunuz?")'> Ödeme Yap</a></th>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-xl-4 mt-5 mb-xl-0">
+    <div class="card shadow">
+        <!-- Card image -->
+        <img class="card-img-top" src="@Url.Content("~/Content/img/theme/cashier.jpg")" alt="Image placeholder">
+        <!-- Card body -->
+        <div class="card-body">
+            <h5 class="h2 card-title mb-0"><b>Kasiyer:</b> Aliye Duru</h5>
+            
+            <a href="" class="btn btn-link px-0">Kasiyer Bilgileri</a>
+        </div>
+    </div>
+        
+    </div>

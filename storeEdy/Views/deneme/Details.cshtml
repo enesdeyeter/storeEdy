@@ -1,0 +1,43 @@
+﻿@model storeEdy.Models.NewFisler
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NewFisler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SepetOturum.sepetoturumid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SepetOturum.sepetoturumid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fisTutar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fisTutar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tarih)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fisid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
