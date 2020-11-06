@@ -1,6 +1,6 @@
 # storeEdy
 
-ASP.Net MVC kullanarak yazdığım perakende satış sistemi. Veri tabanı olarak SQL Server kullandım.
+ASP.Net MVC kullanarak yazdığım perakende satış sistemi.
 
 ![1](https://user-images.githubusercontent.com/27866989/75935408-2b1f6200-5e90-11ea-9a66-14a824e3d46d.png)
 ![2](https://user-images.githubusercontent.com/27866989/75935423-33779d00-5e90-11ea-9d4c-3c82fec65591.png)
